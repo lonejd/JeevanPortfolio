@@ -1,23 +1,9 @@
-import {
-  ArrowRight,
-  Bot,
-  Compass,
-  Layers,
-  LineChart,
-  Sparkles,
-  Wand2,
-} from "lucide-react";
+import { ArrowRight, BookOpen, Building2, Leaf, ScanEye } from "lucide-react";
 import type { ComponentType, ReactNode } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
 import { FadeIn } from "@/components/ui/motion-primitives";
-
-/**
- * Project imagery below is mockup-only. All visuals are sourced from
- * Dribbble and credit belongs to the original creators on dribbble.com.
- * Replace these with your own work before shipping.
- */
 
 type Project = {
   id: string;
@@ -26,6 +12,7 @@ type Project = {
   title: string;
   description: string;
   meta: string;
+  href: string;
   imageRatio: number;
   image: string;
   imageAlt: string;
@@ -33,85 +20,56 @@ type Project = {
 
 const PROJECTS: Project[] = [
   {
-    id: "loom",
-    icon: Sparkles,
-    iconLabel: "LOOM",
-    title:
-      "An AI writing companion that thinks alongside you, allowing you to capture ideas, edits, and drafts in one focused space.",
+    id: "kadhaster",
+    icon: BookOpen,
+    iconLabel: "KADHASTER",
+    title: "AI-based personalized books",
     description:
-      "I designed Loom, a focused writing surface where ideas, edits, and drafts coexist without the chat clutter.",
-    meta: "Design Engineer, 2024",
-    imageRatio: 752 / 497,
-    image:
-      "https://cdn.dribbble.com/userupload/46128964/file/b92b9d268dd928642ca94bd49e32923a.jpg?resize=752x497&vertical=center",
-    imageAlt: "Loom AI writing companion mockup",
+      "Enhanced the existing website into an animation marvel, with unique user interactions showcasing 3D books.",
+    meta: "Frontend Developer & Admin, 2025",
+    href: "https://www.kadhaster.com",
+    imageRatio: 1024 / 441,
+    image: "/projects/kadhaster.jpg",
+    imageAlt: "KADHASTER AI personalized books landing page",
   },
   {
-    id: "atlas",
-    icon: Compass,
-    iconLabel: "Atlas Studio",
-    title: "A two week brand and product sprint for a creative studio.",
+    id: "nokki-ai",
+    icon: ScanEye,
+    iconLabel: "NOKKI AI",
+    title: "AI-integrated CCTV cameras",
     description:
-      "End to end identity, marketing site, and a small product surface designed to feel quietly confident across every touchpoint.",
-    meta: "Product & Brand Designer, 2025",
-    imageRatio: 1024 / 768,
-    image:
-      "https://cdn.dribbble.com/userupload/24599416/file/original-1ae5075dcd129aebb16bdbca24b41ac7.png?resize=1024x768&vertical=center",
-    imageAlt: "Atlas Studio brand and product sprint mockup",
+      "An AI-powered video intelligence platform that upgrades your existing camera setup with real-time monitoring, smart alerts, and analytics.",
+    meta: "Frontend & Mobile Developer, 2025",
+    href: "https://nokkiai.com/",
+    imageRatio: 1024 / 469,
+    image: "/projects/nokki-ai.jpg",
+    imageAlt: "Nokki AI video intelligence platform landing page",
   },
   {
-    id: "rhythm",
-    icon: LineChart,
-    iconLabel: "Rhythm",
-    title: "Calm analytics for indie founders.",
+    id: "sr-groups",
+    icon: Building2,
+    iconLabel: "SR Groups",
+    title: "Built website for a construction company",
     description:
-      "A weekly digest that turns raw product data into a simple narrative. Built so you can read it on a Sunday with coffee.",
-    meta: "Founder & Designer, 2024",
-    imageRatio: 1024 / 768,
-    image:
-      "https://cdn.dribbble.com/userupload/47357856/file/75841fa59f32f05ca6c5ddf02d08dfe6.png?resize=1024x768&vertical=center",
-    imageAlt: "Rhythm calm analytics mockup",
+      "SR Groups transforms ideas into durable, sustainable, and innovative engineering solutions trusted by businesses, governments, and communities.",
+    meta: "Frontend Developer, 2025",
+    href: "https://srgroupsindia.co.in/",
+    imageRatio: 1024 / 439,
+    image: "/projects/sr-groups.jpg",
+    imageAlt: "SR Groups construction company website landing page",
   },
   {
-    id: "groove",
-    icon: Wand2,
-    iconLabel: "Groove",
-    title:
-      "Reimagining the booking flow for a music school, asisting thousands of students in finding the right lessons.",
+    id: "gvajra",
+    icon: Leaf,
+    iconLabel: "gVajra",
+    title: "Built mobile app for bio-waste",
     description:
-      "I led a redesign of the lesson booking experience, cutting drop off in half and making the schedule feel like a calendar people actually want to open.",
-    meta: "Lead Designer, 2023",
-    imageRatio: 1024 / 768,
-    image:
-      "https://cdn.dribbble.com/userupload/43955214/file/original-d4cde1de803e84b97d8892e3444c04b0.png?resize=1024x768&vertical=center",
-    imageAlt: "Groove music school booking flow mockup",
-  },
-  {
-    id: "fieldnote",
-    icon: Layers,
-    iconLabel: "Fieldnote",
-    title:
-      "A pocket sized research tool for design teams that want to get out of their docs and into the world.",
-    description:
-      "Capture quotes, tag patterns, and synthesize themes in one place. The interface stays out of the way so the thinking can happen.",
-    meta: "Design Engineer, 2024",
-    imageRatio: 1024 / 768,
-    image:
-      "https://cdn.dribbble.com/userupload/30310902/file/original-621e7fe47be9d11ee14544456c693bec.png?resize=1024x768&vertical=center",
-    imageAlt: "Fieldnote pocket sized research tool mockup",
-  },
-  {
-    id: "talkback",
-    icon: Bot,
-    iconLabel: "Talkback",
-    title: "A friendlier interface for talking to language models.",
-    description:
-      "An exploration of how AI chat could feel less like a terminal and more like a conversation with a curious friend.",
-    meta: "Independent Project, 2025",
-    imageRatio: 1024 / 768,
-    image:
-      "https://cdn.dribbble.com/userupload/16560717/file/original-c6f745d50302d66609bfe080f99f5396.png?resize=1024x768&vertical=center",
-    imageAlt: "Talkback friendlier AI chat interface mockup",
+      "Built a mobile app for bio-waste monitoring, fertilizer management, and EV charging.",
+    meta: "Mobile App Developer, 2026",
+    href: "https://srgroupsindia.co.in/",
+    imageRatio: 1024 / 1023,
+    image: "/projects/gvajra.jpg",
+    imageAlt: "gVajra bio-waste mobile app logo",
   },
 ];
 
@@ -128,26 +86,26 @@ export function Projects({
 
   return (
     <section className="relative w-full">
-      <div className="mx-auto w-full max-w-275 px-6 sm:px-10">
+      <div className="mx-auto w-full max-w-275 px-4 sm:px-8 md:px-10">
         {withHeadline ? (
-          <FadeIn className="flex flex-col items-center gap-5 pt-12 pb-10 text-center sm:pt-20 sm:pb-14">
-            <h2 className="font-serif text-[2.5rem] font-medium leading-[1.05] tracking-tight text-foreground md:text-[3rem] lg:text-[3.5rem]">
+          <FadeIn className="flex flex-col items-center gap-4 px-1 pt-8 pb-8 text-center sm:gap-5 sm:pt-16 sm:pb-12 md:pt-20 md:pb-14">
+            <h2 className="font-serif text-[2.15rem] font-medium leading-[1.05] tracking-tight text-foreground sm:text-[2.5rem] md:text-[3rem] lg:text-[3.5rem]">
               My projects
             </h2>
-            <p className="max-w-[33ch] text-[18px] leading-[1.45] tracking-tight text-foreground/65 sm:text-[20px]">
+            <p className="max-w-[33ch] text-[16px] leading-[1.45] tracking-tight text-foreground/65 sm:text-[18px] md:text-[20px]">
               From playful experiments to thoughtful systems, a look at the
               work I&rsquo;m proud to have shipped.
             </p>
           </FadeIn>
         ) : null}
 
-        <div className="columns-1 gap-6 md:columns-2 md:gap-7">
+        <div className="columns-1 gap-5 md:columns-2 md:gap-7">
           {items.map((project, index) => (
             <ProjectCard key={project.id} project={project} index={index} />
           ))}
         </div>
 
-        {viewMoreVisible ? (
+        {viewMoreVisible && PROJECTS.length > 4 ? (
           <div className="mt-12 flex justify-center sm:mt-16">
             <Link
               href="/projects"
@@ -177,46 +135,53 @@ function ProjectCard({
   return (
     <FadeIn
       delay={Math.min(index * 0.06, 0.3)}
-      className="mb-6 break-inside-avoid md:mb-7"
+      className="mb-5 break-inside-avoid md:mb-7"
     >
-      <article className="project-card flex cursor-pointer flex-col gap-4 rounded-3xl border border-foreground/8 bg-background p-3 sm:p-3.5">
-        <header className="flex items-center gap-2.5 px-1 pt-2">
-          <span className="border-foreground/10 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border bg-background">
-            <Icon className="h-3.5 w-3.5 text-foreground" aria-hidden="true" />
-          </span>
-          <span className="text-sm font-medium tracking-tight text-foreground">
-            {project.iconLabel}
-          </span>
-        </header>
-
-        <div
-          className="project-card__image ring-foreground/5 relative w-full overflow-hidden rounded-2xl bg-foreground/5 ring-1"
-          style={{ aspectRatio: project.imageRatio }}
+      <article>
+        <Link
+          href={project.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="project-card flex cursor-pointer flex-col gap-3 rounded-2xl border border-foreground/8 bg-background p-2.5 sm:gap-4 sm:rounded-3xl sm:p-3.5"
         >
-          <div className="project-card__image-inner">
-            <Image
-              src={project.image}
-              alt={project.imageAlt}
-              fill
-              sizes="(min-width: 1024px) 540px, (min-width: 768px) 45vw, 100vw"
-              className="object-cover"
-              priority={index < 2}
-            />
+          <header className="flex items-center gap-2.5 px-1 pt-2">
+            <span className="border-foreground/10 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border bg-background">
+              <Icon className="h-3.5 w-3.5 text-foreground" aria-hidden="true" />
+            </span>
+            <span className="text-sm font-medium tracking-tight text-foreground">
+              {project.iconLabel}
+            </span>
+          </header>
+
+          <div
+            className="project-card__image ring-foreground/5 relative w-full overflow-hidden rounded-2xl bg-foreground/5 ring-1"
+            style={{ aspectRatio: project.imageRatio }}
+          >
+            <div className="project-card__image-inner">
+              <Image
+                src={project.image}
+                alt={project.imageAlt}
+                fill
+                sizes="(min-width: 1024px) 540px, (min-width: 768px) 45vw, 100vw"
+                className="object-cover"
+                priority={index < 2}
+              />
+            </div>
           </div>
-        </div>
 
-        <div className="flex flex-col gap-2.5 px-1 pb-1">
-          <h3 className="text-[20px] font-medium leading-[1.2] tracking-tight text-foreground sm:text-[22px]">
-            {project.title}
-          </h3>
-          <p className="text-[14px] leading-normal tracking-tight text-foreground/65 sm:text-[15px]">
-            {project.description}
+          <div className="flex flex-col gap-2.5 px-1 pb-1">
+            <h3 className="text-[18px] font-medium leading-[1.25] tracking-tight text-foreground sm:text-[20px] md:text-[22px]">
+              {project.title}
+            </h3>
+            <p className="text-[13px] leading-normal tracking-tight text-foreground/65 sm:text-[14px] md:text-[15px]">
+              {project.description}
+            </p>
+          </div>
+
+          <p className="px-1 pb-2 text-[12px] tracking-tight text-foreground/50">
+            {project.meta}
           </p>
-        </div>
-
-        <p className="px-1 pb-2 text-[12px] tracking-tight text-foreground/50">
-          {project.meta}
-        </p>
+        </Link>
       </article>
     </FadeIn>
   );

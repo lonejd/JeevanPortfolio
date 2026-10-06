@@ -5,7 +5,7 @@ import { Check, Copy, Mail } from "lucide-react";
 import { useState } from "react";
 import type { ReactNode } from "react";
 
-const EMAIL = "hello@example.com";
+const EMAIL = "heyitslonejd@gmail.com";
 const EASE = [0.22, 1, 0.36, 1] as const;
 
 export function ContactButton(): ReactNode {
@@ -47,7 +47,7 @@ export function ContactButton(): ReactNode {
       }
       transition={{ layout: { duration: 0.55, ease: EASE } }}
       style={{ borderRadius: 12 }}
-      className="focus-ring relative inline-flex h-11 cursor-pointer items-center justify-center bg-foreground px-5 text-sm font-medium text-background"
+      className="focus-ring relative inline-flex h-11 max-w-full cursor-pointer items-center justify-center bg-foreground px-4 text-sm font-medium text-background sm:px-5"
     >
       <motion.span
         layout="position"
@@ -62,7 +62,7 @@ export function ContactButton(): ReactNode {
               animate={{ opacity: 1, filter: "blur(0px)" }}
               exit={{ opacity: 0, filter: "blur(8px)" }}
               transition={{ duration: 0.35, ease: EASE }}
-              className="inline-flex items-center gap-2 whitespace-nowrap"
+              className="inline-flex max-w-[min(100vw-3rem,20rem)] items-center gap-2 sm:max-w-none"
             >
               <span className="relative inline-flex h-4 w-4 shrink-0 items-center justify-center">
                 <AnimatePresence initial={false} mode="wait">
@@ -91,7 +91,9 @@ export function ContactButton(): ReactNode {
                   )}
                 </AnimatePresence>
               </span>
-              <span className="tabular-nums">{EMAIL}</span>
+              <span className="truncate text-[12px] tabular-nums sm:text-sm">
+                {EMAIL}
+              </span>
             </motion.span>
           ) : (
             <motion.span

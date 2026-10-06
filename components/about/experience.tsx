@@ -7,59 +7,58 @@ import { useState, type ReactNode } from "react";
 type Entry = {
   company: string;
   role: string;
-  period: string;
   slug?: string;
   brand?: string;
 };
 
 const ENTRIES: Entry[] = [
   {
-    company: "Linear",
-    role: "Senior Design Engineer",
-    period: "Mar 2024 – Present",
-    slug: "linear",
-    brand: "#5E6AD2",
+    company: "React JS",
+    role: "Frontend",
+    slug: "react",
+    brand: "#61DAFB",
   },
   {
-    company: "Vercel",
-    role: "Product Designer",
-    period: "Aug 2022 – Feb 2024",
-    slug: "vercel",
-    brand: "#0a0a0a",
+    company: "Java",
+    role: "Backend",
+    slug: "openjdk",
+    brand: "#ED8B00",
   },
   {
-    company: "Stripe",
-    role: "Design Engineer",
-    period: "Jun 2021 – Jul 2022",
-    slug: "stripe",
-    brand: "#635BFF",
+    company: "Python",
+    role: "Backend",
+    slug: "python",
+    brand: "#3776AB",
+  },
+  {
+    company: "Next JS",
+    role: "Frontend",
+    slug: "nextdotjs",
+    brand: "#000000",
   },
   {
     company: "Figma",
-    role: "UI Engineer",
-    period: "Sep 2019 – May 2021",
+    role: "Design",
     slug: "figma",
-    brand: "#A259FF",
+    brand: "#F24E1E",
   },
   {
-    company: "Notion",
-    role: "Product Designer",
-    period: "Jan 2018 – Aug 2019",
-    slug: "notion",
-    brand: "#111111",
+    company: "Tailwind",
+    role: "Frontend",
+    slug: "tailwindcss",
+    brand: "#06B6D4",
   },
   {
-    company: "Airbnb",
-    role: "Design Intern",
-    period: "May 2017 – Dec 2017",
-    slug: "airbnb",
-    brand: "#FF5A5F",
+    company: "Bootstrap",
+    role: "Frontend",
+    slug: "bootstrap",
+    brand: "#7952B3",
   },
   {
-    company: "Freelance",
-    role: "Designer & Developer",
-    period: "2015 – 2017",
-    brand: "#0AE448",
+    company: "Node JS",
+    role: "Backend",
+    slug: "nodedotjs",
+    brand: "#339933",
   },
 ];
 
@@ -81,7 +80,7 @@ export function Experience(): ReactNode {
         Experience
       </h3>
       <div
-        className={`border-foreground/5 bg-foreground/2 dark:bg-foreground/5 relative overflow-hidden rounded-4xl border px-2 pt-2 sm:px-4 sm:pt-4 ${
+        className={`border-foreground/5 bg-foreground/2 dark:bg-foreground/5 relative overflow-hidden rounded-3xl border px-2 pt-2 sm:rounded-4xl sm:px-4 sm:pt-4 ${
           open ? "pb-2 sm:pb-4" : "pb-0"
         }`}
       >
@@ -97,19 +96,17 @@ export function Experience(): ReactNode {
           <ul className="flex flex-col gap-2">
             {ENTRIES.map((entry) => (
               <li
-                key={`${entry.company}-${entry.period}`}
-                className="bg-background border-foreground/5 flex items-center gap-4 rounded-3xl border p-2"
+                key={entry.company}
+                className="bg-background border-foreground/5 flex items-center gap-3 rounded-2xl border p-2 sm:gap-4 sm:rounded-3xl"
                 style={{ minHeight: ROW_HEIGHT }}
               >
                 <CompanyLogo entry={entry} />
                 <div className="flex min-w-0 flex-col">
-                  <span className="text-foreground text-[17px] font-semibold tracking-tight sm:text-[18px]">
+                  <span className="text-foreground text-[16px] font-semibold tracking-tight sm:text-[18px]">
                     {entry.company}
                   </span>
-                  <span className="text-foreground/65 mt-0.5 text-[14px] tracking-tight sm:text-[15px]">
+                  <span className="text-foreground/65 mt-0.5 text-[13px] tracking-tight sm:text-[15px]">
                     {entry.role}
-                    <span className="text-foreground/30 mx-2">•</span>
-                    <span className="text-foreground/55">{entry.period}</span>
                   </span>
                 </div>
               </li>

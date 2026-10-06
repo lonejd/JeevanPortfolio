@@ -1,4 +1,4 @@
-import { Mail } from "lucide-react";
+import { Instagram, Mail } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
@@ -12,10 +12,10 @@ const CARD_FADE_MASK =
 
 export function ContactCard(): ReactNode {
   return (
-    <section className="mx-auto my-12 w-full max-w-275 px-6 sm:my-20 sm:px-10">
+    <section className="mx-auto my-10 w-full max-w-275 px-4 sm:my-16 sm:px-8 md:my-20 md:px-10">
       <FadeIn>
-        <div className="relative w-full overflow-hidden rounded-4xl border border-foreground/8 bg-background p-1.5 shadow-sm">
-          <div className="relative w-full overflow-hidden rounded-[1.6rem]">
+        <div className="relative w-full overflow-hidden rounded-3xl border border-foreground/8 bg-background p-1 shadow-sm sm:rounded-4xl sm:p-1.5">
+          <div className="relative w-full overflow-hidden rounded-[1.35rem] sm:rounded-[1.6rem]">
             <div
               aria-hidden="true"
               className="pointer-events-none absolute inset-0 opacity-45 dark:opacity-25"
@@ -27,41 +27,41 @@ export function ContactCard(): ReactNode {
               <ShaderFlow scale={3} brightness={3}/>
             </div>
 
-            <div className="relative grid gap-8 p-6 sm:gap-10 sm:p-7 md:grid-cols-[1.2fr_1fr] md:items-stretch md:gap-6 md:p-6">
-              <div className="flex flex-col gap-5">
-                <h2 className="font-serif text-[2.25rem] font-medium leading-[1.05] tracking-tight text-foreground sm:text-[2.75rem] lg:text-[3.25rem]">
+            <div className="relative grid gap-6 p-5 sm:gap-8 sm:p-7 md:grid-cols-[1.2fr_1fr] md:items-stretch md:gap-6 md:p-6">
+              <div className="flex flex-col gap-4 sm:gap-5">
+                <h2 className="font-serif text-[2rem] font-medium leading-[1.05] tracking-tight text-foreground sm:text-[2.5rem] md:text-[2.75rem] lg:text-[3.25rem]">
                   Let&rsquo;s connect
                 </h2>
-                <p className="max-w-[29ch] text-[18px] leading-[1.4] tracking-tight text-foreground/65 sm:text-[22px] mb-6">
+                <p className="mb-2 max-w-[29ch] text-[16px] leading-[1.45] tracking-tight text-foreground/65 sm:mb-6 sm:text-[18px] md:text-[22px]">
                   I&rsquo;m always open to discussing new projects, creative
                   ideas, or opportunities to be part of your visions. Just reach out!
                 </p>
                 <ContactCardCtas />
               </div>
 
-              <div className="border-foreground/8 flex flex-col items-center justify-center gap-6 rounded-[1.1rem] border bg-background p-6 sm:p-8">
+              <div className="border-foreground/8 flex flex-col items-center justify-center gap-5 rounded-[1.1rem] border bg-background p-5 sm:gap-6 sm:p-8">
                 <div className="flex items-center gap-3 opacity-75">
                   <SocialIcon
-                    href="mailto:hello@example.com"
+                    href="mailto:heyitslonejd@gmail.com"
                     label="Email"
                     lucideIcon={Mail}
                   />
                   <SocialIcon
-                    href="https://www.linkedin.com"
-                    label="LinkedIn"
-                    imageSrc="/linkedin.svg"
+                    href="https://wa.me/919342395946"
+                    label="WhatsApp"
+                    imageSrc="/whatsapp.svg"
                   />
                   <SocialIcon
-                    href="https://x.com"
-                    label="X"
-                    imageSrc="/x.svg"
+                    href="https://www.instagram.com/lone.jd_/"
+                    label="Instagram"
+                    lucideIcon={Instagram}
                   />
                 </div>
                 <div className="flex flex-col items-center gap-1 text-center">
-                  <p className="text-[13px] tracking-tight text-foreground/70">
+                  <p className="text-[12px] tracking-tight text-foreground/70 sm:text-[13px]">
                     2026 &copy; Built with Next.js
                   </p>
-                  <p className="text-[12px] tracking-tight text-foreground/45">
+                  <p className="text-[11px] tracking-tight text-foreground/45 sm:text-[12px]">
                     By React Bits Pro
                   </p>
                 </div>

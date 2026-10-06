@@ -3,25 +3,15 @@ import type { ReactNode } from "react";
 type Entry = {
   school: string;
   degree: string;
-  period: string;
+  period?: string;
   slug?: string;
 };
 
 const ENTRIES: Entry[] = [
   {
-    school: "Rhode Island School of Design",
-    degree: "BFA, Graphic Design",
-    period: "2013 – 2017",
-  },
-  {
-    school: "Stanford University",
-    degree: "HCI Certificate, d.school",
-    period: "2018",
-  },
-  {
-    school: "Bruno Simon's Three.js Journey",
-    degree: "WebGL & Shaders",
-    period: "2022",
+    school: "Bishop Heber College",
+    degree:
+      "Great knowledge in web developing with crazy animation",
   },
 ];
 
@@ -33,23 +23,27 @@ export function Education(): ReactNode {
       <h3 className="text-foreground text-[15px] font-semibold tracking-tight">
         Education
       </h3>
-      <div className="border-foreground/5 bg-foreground/2 dark:bg-foreground/5 relative rounded-4xl border p-2 sm:p-4">
+      <div className="border-foreground/5 bg-foreground/2 dark:bg-foreground/5 relative rounded-3xl border p-2 sm:rounded-4xl sm:p-4">
         <ul className="flex flex-col gap-2">
           {ENTRIES.map((entry) => (
             <li
-              key={`${entry.school}-${entry.period}`}
-              className="bg-background border-foreground/5 flex items-center gap-4 rounded-3xl border p-2"
+              key={entry.school}
+              className="bg-background border-foreground/5 flex items-center gap-3 rounded-2xl border p-2 sm:gap-4 sm:rounded-3xl"
               style={{ minHeight: ROW_HEIGHT }}
             >
               <SchoolLogo entry={entry} />
               <div className="flex min-w-0 flex-col">
-                <span className="text-foreground text-[17px] font-semibold tracking-tight sm:text-[18px]">
+                <span className="text-foreground text-[16px] font-semibold tracking-tight sm:text-[18px]">
                   {entry.school}
                 </span>
-                <span className="text-foreground/65 mt-0.5 text-[14px] tracking-tight sm:text-[15px]">
+                <span className="text-foreground/65 mt-0.5 text-[13px] leading-snug tracking-tight sm:text-[15px]">
                   {entry.degree}
-                  <span className="text-foreground/30 mx-2">•</span>
-                  <span className="text-foreground/55">{entry.period}</span>
+                  {entry.period ? (
+                    <>
+                      <span className="text-foreground/30 mx-2">•</span>
+                      <span className="text-foreground/55">{entry.period}</span>
+                    </>
+                  ) : null}
                 </span>
               </div>
             </li>

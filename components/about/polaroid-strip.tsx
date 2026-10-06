@@ -3,20 +3,50 @@
 import { motion, useMotionValue, useSpring, useTransform } from "motion/react";
 import { useRef, useSyncExternalStore, type ReactNode } from "react";
 
-import { DottedPattern } from "@/components/ui/dotted-pattern";
-
 type Polaroid = {
   id: string;
+  src: string;
+  alt: string;
   rotate: number;
 };
 
 const PHOTOS: Polaroid[] = [
-  { id: "a", rotate: -8 },
-  { id: "b", rotate: 6 },
-  { id: "c", rotate: -4 },
-  { id: "d", rotate: 7 },
-  { id: "e", rotate: -6 },
-  { id: "f", rotate: 5 },
+  {
+    id: "a",
+    src: "/about/1.jpg",
+    alt: "Jeevan outdoors wearing sunglasses and a cap",
+    rotate: -8,
+  },
+  {
+    id: "b",
+    src: "/about/2.jpg",
+    alt: "Jeevan smiling at the beach in black and white",
+    rotate: 6,
+  },
+  {
+    id: "c",
+    src: "/about/3.jpg",
+    alt: "Jeevan sitting indoors against decorative plates",
+    rotate: -4,
+  },
+  {
+    id: "d",
+    src: "/about/4.jpg",
+    alt: "Jeevan on a motorcycle in black and white",
+    rotate: 7,
+  },
+  {
+    id: "e",
+    src: "/about/5.jpg",
+    alt: "Jeevan portrait outdoors in a pink shirt",
+    rotate: -6,
+  },
+  {
+    id: "f",
+    src: "/about/6.jpg",
+    alt: "Jeevan by the ocean adjusting his glasses",
+    rotate: 5,
+  },
 ];
 
 const EASE = [0.22, 1, 0.36, 1] as const;
@@ -33,8 +63,8 @@ function PolaroidCard({
   const my = useMotionValue(0);
   const sx = useSpring(mx, { stiffness: 220, damping: 18, mass: 0.6 });
   const sy = useSpring(my, { stiffness: 220, damping: 18, mass: 0.6 });
-  const tx = useTransform(sx, (v) => `${v}px`);
-  const ty = useTransform(sy, (v) => `${v}px`);
+  const tx = useTransform(sx, (v) => v);
+  const ty = useTransform(sy, (v) => v);
 
   const handleMove = (e: React.PointerEvent<HTMLDivElement>): void => {
     const el = ref.current;
@@ -57,24 +87,34 @@ function PolaroidCard({
 
   return (
     <motion.div
-      ref={ref}
-      onPointerMove={handleMove}
-      onPointerLeave={handleLeave}
-      initial={{ opacity: 0, y: -120, filter: "blur(18px)", rotate: photo.rotate }}
-      animate={{ opacity: 1, y: 0, filter: "blur(0px)", rotate: photo.rotate }}
+      initial={{ opacity: 0, y: -120, filter: "blur(18px)" }}
+      animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
       transition={{
         duration: 0.9,
         delay: 0.05 + index * 0.08,
         ease: EASE,
       }}
-      style={{
-        x: tx,
-        y: ty,
-        rotate: photo.rotate,
-      }}
-      className="relative aspect-[3/4] w-[clamp(6rem,11vw,9rem)] shrink-0 overflow-hidden rounded-2xl border-6 border-neutral-300/40 bg-white p-1.5 dark:border-white/15 dark:bg-neutral-900"
+      className="shrink-0"
     >
-      <DottedPattern className="relative h-full w-full overflow-hidden rounded-xl" />
+      <motion.div
+        ref={ref}
+        onPointerMove={handleMove}
+        onPointerLeave={handleLeave}
+        style={{
+          x: tx,
+          y: ty,
+          rotate: photo.rotate,
+        }}
+        className="relative aspect-[3/4] w-[clamp(5rem,28vw,9rem)] overflow-hidden rounded-2xl border-4 border-neutral-300/40 bg-white p-1 sm:w-[clamp(6rem,11vw,9rem)] sm:border-6 sm:p-1.5 dark:border-white/15 dark:bg-neutral-900"
+      >
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={photo.src}
+          alt={photo.alt}
+          draggable={false}
+          className="h-full w-full rounded-xl object-cover object-center select-none"
+        />
+      </motion.div>
     </motion.div>
   );
 }
@@ -91,7 +131,7 @@ export function PolaroidStrip(): ReactNode {
   }
 
   return (
-    <div className="flex flex-wrap w-full items-start justify-center gap-1 px-4 sm:gap-1.5 sm:px-8">
+    <div className="flex w-full flex-wrap items-start justify-center gap-1.5 px-3 sm:gap-1.5 sm:px-8">
       {PHOTOS.map((photo, i) => (
         <PolaroidCard key={photo.id} photo={photo} index={i} />
       ))}

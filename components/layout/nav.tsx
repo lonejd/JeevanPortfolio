@@ -152,10 +152,10 @@ export function Nav(): ReactNode {
   return (
     <nav
       aria-label="Primary"
-      className="fixed left-1/2 top-6 z-50 -translate-x-1/2"
+      className="fixed top-3 left-1/2 z-50 w-[calc(100%-1.5rem)] max-w-fit -translate-x-1/2 sm:top-6 sm:w-auto"
     >
-      <div className="flex items-center gap-1 rounded-full bg-background p-1.5 shadow-sm border border-foreground/8">
-        <ul ref={listRef} className="relative flex items-center gap-1">
+      <div className="flex items-center gap-0.5 rounded-full border border-foreground/8 bg-background p-1 shadow-sm sm:gap-1 sm:p-1.5">
+        <ul ref={listRef} className="relative flex items-center gap-0.5 sm:gap-1">
           {pillRect && (
             <motion.span
               aria-hidden="true"
@@ -183,7 +183,7 @@ export function Nav(): ReactNode {
                 <Link
                   href={item.href}
                   aria-current={isActive ? "page" : undefined}
-                  className="focus-ring relative inline-flex cursor-pointer items-center justify-center rounded-full px-4 py-1.5 text-sm font-medium transition-colors duration-300"
+                  className="focus-ring relative inline-flex cursor-pointer items-center justify-center rounded-full px-3 py-1.5 text-[13px] font-medium transition-colors duration-300 sm:px-4 sm:text-sm"
                 >
                   <span
                     className={

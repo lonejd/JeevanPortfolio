@@ -17,35 +17,29 @@ export const metadata: Metadata = createMetadata({
 
 export default function AboutPage(): ReactNode {
   return (
-    <main id="main-content" className="flex flex-1 flex-col">
-      <section className="mx-auto w-full max-w-312 pt-40 sm:pt-56">
+    <main id="main-content" className="flex flex-1 flex-col overflow-x-clip">
+      <section className="mx-auto w-full max-w-312 px-1 pt-28 sm:px-0 sm:pt-44 md:pt-56">
         <PolaroidStrip />
       </section>
 
-      <section className="mx-auto w-full max-w-160 px-6 pt-20 pb-16 sm:px-10 sm:pt-28 sm:pb-24">
+      <section className="mx-auto w-full max-w-160 px-4 pt-14 pb-12 sm:px-8 sm:pt-24 sm:pb-20 md:px-10 md:pt-28 md:pb-24">
         <FadeIn delay={0.5}>
-          <div className="rounded-4xl border border-foreground/5 bg-foreground/1.5 p-8 sm:p-12 dark:bg-foreground/3">
-            <h1 className="font-serif text-[1.75rem] font-medium tracking-tight text-foreground sm:text-[2rem]">
-              Hello! I&rsquo;m <span className="border-b border-foreground/30 pb-0.5">Josh Mercer</span>.
+          <div className="rounded-3xl border border-foreground/5 bg-foreground/1.5 p-5 sm:rounded-4xl sm:p-10 md:p-12 dark:bg-foreground/3">
+            <h1 className="font-serif text-[1.5rem] font-medium tracking-tight text-foreground sm:text-[1.75rem] md:text-[2rem]">
+              Heyy I&rsquo;m <span className="border-b border-foreground/30 pb-0.5">Jeevan</span>.
             </h1>
-            <div className="mt-8 space-y-6 text-[17px] leading-[1.7] tracking-tight text-foreground/75 sm:text-[18px]">
+            <div className="mt-5 space-y-6 text-[16px] leading-[1.7] tracking-tight text-foreground/75 sm:mt-8 sm:text-[17px] md:text-[18px]">
               <p>
-                A <strong className="font-semibold text-foreground">product designer and frontend engineer</strong> passionate about building intuitive, human-centered digital experiences. With a background in <strong className="font-semibold text-foreground">visual craft</strong> and <strong className="font-semibold text-foreground">interaction design</strong>, I bring a unique blend of design thinking and technical execution to every project.
-              </p>
-              <p>
-                My journey into design began when I realized how often good user experience was missing from powerful tools. That led me to embrace <strong className="font-semibold text-foreground">user-centered design</strong> as both a mindset and a craft, one that balances clarity, creativity, and functionality.
-              </p>
-              <p>
-                Currently leading design at small product teams shipping software for <strong className="font-semibold text-foreground">creative professionals</strong>, I&rsquo;m always looking for opportunities to <strong className="font-semibold text-foreground">shape thoughtful interfaces and build scalable design systems</strong>.
+                I&rsquo;m a <strong className="font-semibold text-foreground">Full-Stack &amp; Mobile App Developer</strong> who enjoys turning ideas into functional, user-friendly digital products. I build modern web applications, mobile apps, and scalable solutions, combining clean development with thoughtful design to create experiences that are simple, fast, and impactful.
               </p>
             </div>
           </div>
         </FadeIn>
       </section>
 
-      <section className="mx-auto w-full max-w-[40rem] px-6 pb-20 sm:px-10 sm:pb-28">
+      <section className="mx-auto w-full max-w-[40rem] px-4 pb-14 sm:px-8 sm:pb-24 md:px-10 md:pb-28">
         <FadeIn delay={0.1}>
-          <div className="flex flex-col gap-10">
+          <div className="flex flex-col gap-8 sm:gap-10">
             <Experience />
             <Education />
             <Skills />
@@ -55,7 +49,7 @@ export default function AboutPage(): ReactNode {
       </section>
 
       <ContactCard />
-      <div className="h-12 sm:h-16" />
+      <div className="h-10 sm:h-16" />
     </main>
   );
 }

@@ -13,11 +13,11 @@ export const metadata: Metadata = createMetadata({
 
 export default function HomePage(): ReactNode {
   return (
-    <main id="main-content" className="flex flex-1 flex-col gap-20 sm:gap-28">
+    <main id="main-content" className="flex flex-1 flex-col gap-12 overflow-x-clip sm:gap-20 md:gap-28">
       <Hero />
       <Projects withHeadline viewMoreVisible />
       <ContactCard />
-      <div className="h-12 sm:h-16" />
+      <div className="h-10 sm:h-16" />
     </main>
   );
 }
